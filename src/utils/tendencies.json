@@ -1,0 +1,23 @@
+[
+    {
+        "img": "/ia.svg",
+        "name": "Artificial Intelligence",
+        "bgColor": "bg-yellow-400",
+        "summary": "Sistemas em aprendizado, com raciocínio, percepção e compreensão da linguagem natural.",
+        "link": "/ia"
+    },
+    {
+        "img": "/blockchain.svg",
+        "name": "Blockchain",
+        "bgColor": "bg-green-400",
+        "summary": "Registro distribuído, armazenamento seguro e descentralizado de informações em uma rede.",
+        "link": "/blockchain"
+    },
+    {
+        "img": "/5g.svg",
+        "name": "5g",
+        "bgColor": "bg-blue-400",
+        "summary": "A quinta geração de tecnologia de redes móveis, maior velocidade, menor latência, maior capacidade.",
+        "link": "/fivegen"
+    }
+]
