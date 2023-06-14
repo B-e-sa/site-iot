@@ -8,8 +8,9 @@ const textifyString = (
 
     return splitedString.map((string, index) => {
 
-        if (index === splitedString.length - 1)
-            style = undefined
+        const isLastItem = index === splitedString.length - 1
+
+        if (isLastItem) style = undefined
 
         return <p style={style}>
             {string}

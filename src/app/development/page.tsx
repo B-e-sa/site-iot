@@ -2,83 +2,27 @@
 import c from '../../../public/programming-icons/c.png'
 import cpp from '../../../public/programming-icons/cpp.svg'
 import python from '../../../public/programming-icons/python.svg'
-import { Typography } from "@mui/material"
 import CircularIcon from "../components/CircularIcon"
-import Link from 'next/link'
+import Text from '../components/Text'
+import Title from '../components/Title'
 
 export default function Development() {
-
-    // 
 
     const pageText = `
     The development of IoT (Internet of Things) solutions involves various stages and aspects. It is a technology that has gained increasing relevance in various sectors, such as home automation, industry, healthcare, agriculture, among others. It enables the connection and communication between physical devices and computational systems, creating an intelligent and interconnected ecosystem.
     Behind IoT, there are several programming languages and technologies that drive the development of innovative solutions and intelligent applications for your day-to-day life. Here are some of the most popular languages and technologies:
     `
 
-    const pageCode = `
-    // * = tradução para linguagem humana
-
-
-void setup()// Configuração inicial do código, que ocorre
-            // antes da execução do loop (linha 12)
-{
-  pinMode(0, OUTPUT); // Define pino 0 (vermelho)
-  pinMode(1, OUTPUT); // ----------- 1 (amarelo)
-  pinMode(2, OUTPUT); // ----------- 2 (verde)
-}
-
-void loop() // Inicia um loop, onde o código é iniciado 
-            // e repetido milhares de vezes por segundo
-  
-{
-  digitalWrite(2, HIGH); // *Seleciona o pino 2 (verde)
-                         // e determina sua voltagem
-                         // como HIGH (~3.3 Volts), ligando-o
-  
-  delay(100);            // Espera 100 milisegundos para ler a 
-                         // proxima linha de código
-                         // 
-                         // *Atrasar 100 ms
-  
-  digitalWrite(2, LOW);  // Desliga o pino 2 (voltagem mínima).
-                         //
-                         // *Seleciona o pino de valor 2
-                         // e determina sua voltagem 
-                         // como LOW (~0 Volts), desligando-o
-  delay(100);
-  
-  digitalWrite(1, HIGH); // Liga pino 1
-  
-  delay(5000);
-  
-  digitalWrite(1, LOW);  // Desliga pino 1
-  
-  digitalWrite(0, HIGH); // Liga pino 0
-  
-  delay(1000);
-  
-  digitalWrite(0, LOW);  // Desliga pino 0
-}
-    `
-
     return (
-        <article className="w-3/5 text-justify mx-auto">
+        <article className="w-3/5 mx-auto">
 
             <div className='mb-5'>
-                <Typography variant="h3" fontSize={30}>What is IoT development?</Typography>
-                <div>
-                    {pageText.split('\n').map((paragraph) => {
-                        return <p className="mb-3">
-                            {paragraph}
-                        </p>
-                    })}
-                </div>
+                <Title string="What is IoT development?" />
+                <Text string={pageText} />
             </div>
 
             <div className='mb-3'>
-                <Typography variant="h3" fontSize={30}>
-                    Which languages are used in IoT development?
-                </Typography>
+                <Title string='Which languages are used in IoT development?' />
                 <div className="flex justify-evenly">
                     <div className="w-2/5">
                         <CircularIcon
@@ -120,9 +64,7 @@ void loop() // Inicia um loop, onde o código é iniciado
             </div>
 
             <div>
-                <Typography variant="h3" fontSize={30}>
-                    I want to develop IoT technologies!
-                </Typography>
+                <Title string="I want to develop IoT technologies!" />
                 <p>
                     So, what if <b>you</b> want to to develop such emergent technologies?
                     In this ever-evolving digital era, the power to shape the world around us lies within our grasp,
@@ -140,20 +82,16 @@ void loop() // Inicia um loop, onde o código é iniciado
                     src="https://www.youtube.com/embed/1ENiVwk8idM"
                     title="Arduino in 100 Seconds"
                     allow="
-                        accelerometer; 
-                        autoplay; 
-                        clipboard-write; 
-                        encrypted-media; 
-                        gyroscope; 
+                        accelerometer;
+                        autoplay;
+                        encrypted-media;
                         picture-in-picture; 
                         web-share
                     "
                 />
 
                 <div>
-                    <Typography variant="h3" fontSize={30}>
-                        Why not practice a little?
-                    </Typography>
+                    <Text string="Why not practice a little?" />
                     <p>
                         if you want to see a real prototype, here's an Arduino board programming simulator.
                         It "simulates" a traffic light and you can open the code with summary and explanatory comments about

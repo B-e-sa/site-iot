@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import tendencies from '../../utils/tendencies.json'
 import { useState } from 'react';
+import Text from '../components/Text';
 
 interface ITendencies {
     id: number;
@@ -14,6 +15,11 @@ interface ITendencies {
 export default function Tendencies() {
     const [selectedTendence, setSelectedTendence] = useState<number>(0);
 
+    const handleSelectTendence = (id: number) => {
+        if (selectedTendence === 0)
+            setSelectedTendence(id)
+    }
+
     return (
         <div className='flex-col my-5 mg:m-0 mg:flex-row flex mg:justify-evenly shrink items-center h-full w-full'>
             {tendencies.map(({
@@ -23,17 +29,29 @@ export default function Tendencies() {
                 bgColor,
                 summary
             }: ITendencies) => {
-                return <div onClick={() => { setSelectedTendence(id) }}
-                    style={{
-                        display: selectedTendence !== id && selectedTendence !== 0
-                            ? 'none'
-                            : ''
-                    }}
-                    className='cursor-pointer flex flex-col items-center hover:scale-110 hover:m-10 mg:hover:m-0 transition-all'>
+
+                const display = selectedTendence !== id && selectedTendence !== 0
+                    ? "none"
+                    : ""
+
+                return <div
+                    key={id}
+                    onClick={() => handleSelectTendence(id)}
+                    style={{ display }}
+                    className='cursor-pointer flex flex-col items-center hover:scale-110 hover:m-10 mg:hover:m-0 transition-all'
+                >
                     <div
+                        onClick={() => setSelectedTendence(0)}
                         style={{ backgroundColor: bgColor }}
                         className={'w-80 h-80 flex justify-center items-center'}>
-                        <Image alt='' src={img} width={250} height={250} />
+                        <div>
+                            <Image
+                                alt=''
+                                src={img}
+                                width={250}
+                                height={250}
+                            />
+                        </div>
                     </div>
                     <div className='text-center w-80 mt-3 mb-3'>
                         <h1 className='font-bold text-xl'>{name}</h1>
@@ -45,35 +63,33 @@ export default function Tendencies() {
                 selectedTendence === 0 ?
                     <></>
                     :
-                    <div className='w-5/12 flex flex-col items-center justify-center'>
-                        <div>
-                            <p onClick={() => setSelectedTendence(0)}>X</p>
-                            {tendencies[selectedTendence - 1].expanded_info
-                                .split('\n')
-                                .map((item) => {
-                                    return <p className='mb-3 text-justify'>
-                                        {item}
-                                    </p>
-                                })}
-                        </div>
+                    <div className='h-9/10 overflow-x-auto w-5/12 flex flex-col items-center justify-start'>
+                        <Text
+                            string={tendencies[selectedTendence - 1].expanded_info}
+                        />
                         <div className='flex'>
-                            {tendencies[selectedTendence - 1].news.map((tendence) => {
+                            {tendencies[selectedTendence - 1].news.map((item) => {
+
+                                const { title, link, image } = item
+
                                 return (
-                                    <div className='w-3/5'>
+                                    <div key={title} className='w-3/5'>
                                         <a
-                                            href={tendence.link}
+                                            href={link}
                                             target='_blank'
                                             className='hover:text-zinc-500'
                                         >
                                             <Image
-                                                className='w-full h-2/3 object-cover odd:w-96'
-                                                alt={tendence.title}
+                                                className='w-full object-cover odd:w-96'
+                                                alt={title}
                                                 width={100}
                                                 height={100}
-                                                src={tendence.image}
+                                                src={image}
                                                 unoptimized
                                             />
-                                            <p className='cursor-pointer'>{tendence.title}</p>
+                                            <p className='cursor-pointer'>
+                                                {title}
+                                            </p>
                                         </a>
                                     </div>
                                 )
@@ -81,6 +97,6 @@ export default function Tendencies() {
                         </div>
                     </div>
             }
-        </div>
+        </div >
     )
 }
