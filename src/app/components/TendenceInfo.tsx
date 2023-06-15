@@ -20,7 +20,7 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
     const { textContex, } = clickedCircle
 
     return (
-        <div className='w-3/5'>
+        <div className='w-3/5 -mr-24'>
             <div>
                 <Typography
                     variant="h3"

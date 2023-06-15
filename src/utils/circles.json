@@ -11,7 +11,7 @@
     },
     {
         "id": 3,
-        "color": "#1061FF",
+        "color": "#1061FA",
         "icon": "/circle-icons/development.svg",
         "textContex": {
             "title": "Development",
@@ -36,7 +36,7 @@
         "textContex": {
             "title": "Our team",
             "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt porro voluptates blanditiis vero molestiae non vitae repellat",
-            "pageLink": "team"
+            "pageLink": "our-team"
         }
     },
     {

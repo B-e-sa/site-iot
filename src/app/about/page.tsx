@@ -7,7 +7,7 @@ import Text from "../components/Text";
 
 export default function About() {
 
-    const [selectedTopic, setSelectedTopic] = useState("")
+    const [selectedTopic, setSelectedTopic] = useState("#iot-importance")
 
     const handleListItemClick = (topic: string) => {
         setSelectedTopic(topic)

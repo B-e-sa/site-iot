@@ -10,11 +10,20 @@ body {
     overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-    background-color: black;
-    width: 5px;
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
 }
 
-::-webkit-scrollbar-thumb {
-    background-color: white;
+*::-webkit-scrollbar-track {
+    background: #777777;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #171717;
+    border-radius: 0px;
+    border: 21px solid #171717;
 }

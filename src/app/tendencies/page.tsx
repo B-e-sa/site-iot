@@ -80,7 +80,7 @@ export default function Tendencies() {
                                             className='hover:text-zinc-500'
                                         >
                                             <Image
-                                                className='w-full object-cover odd:w-96'
+                                                className='w-full object-cover'
                                                 alt={title}
                                                 width={100}
                                                 height={100}

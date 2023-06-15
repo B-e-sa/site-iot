@@ -26,7 +26,7 @@ export default function RootLayout({ children }: IChildren) {
     'about',
     'tendencies',
     'development',
-    'our team'
+    'our-team'
   ];
 
   const theme = createTheme({
@@ -82,7 +82,7 @@ export default function RootLayout({ children }: IChildren) {
                       }
                       sx={{ my: 2, color: 'white', display: 'block' }}
                     >
-                      {page}
+                      {page.split("-").join(' ')}
                     </Button>
                   </Link>
                 ))}
