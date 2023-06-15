@@ -35,7 +35,7 @@
         "icon": "/circle-icons/team.svg",
         "textContex": {
             "title": "Our team",
-            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt porro voluptates blanditiis vero molestiae non vitae repellat",
+            "content": "This project could only be conceived and implemented because of the contribution of each individual in our group. See who they are!",
             "pageLink": "our-team"
         }
     },

@@ -1,12 +1,11 @@
 "use client"
-import Box from "@mui/material/Box";
 import Image from "next/image";
 import { useState } from "react";
 import circles from '../utils/circles.json';
 import TendencieInfo from "./components/TendenceInfo";
 
 export default function Home() {
-  
+
   const [selectedCircle, setSelectedCircle] = useState<number>(5)
 
   const cord: number[][] = [
@@ -29,31 +28,26 @@ export default function Home() {
       const isCircleSelected = selectedCircle === id
 
       const circleScale: string = isCircleSelected
-        ? 'scale(1.1, 1.1)'
+        ? '1.1'
         : ''
 
       circleElements.push(
-        <Box
-          zIndex={1000}
+        <div
           onClick={() => setSelectedCircle(id)}
-          className="rounded-full absolute cursor-pointer transition-all duration-300"
-          position="relative"
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+          className={`items-center flex justify-center rounded-full absolute cursor-pointer transition-all duration-300`}
+          style={{
+            zIndex: 1000,
+            transform: `translate(${x}px, ${y}px)`,
+            scale: circleScale,
             width: 140,
             height: 140,
-            transform: `
-              translate(${x}px, ${y}px) 
-              ${circleScale}
-            `,
-            background: color
+            background: color,
           }}
         >
           <Image
-            className="-animate-axis-spin z-50"
+            className="-animate-axis-spin z-50 select-none"
             width={80}
+            draggable="false"
             height={80}
             alt=""
             src={icon}
@@ -85,7 +79,7 @@ export default function Home() {
                 </path>
               </svg>}
           </div>
-        </Box>
+        </div>
       )
     }
 

@@ -1,10 +1,5 @@
+import { IText } from "@/types";
 import { CSSProperties, HTMLAttributes } from "react";
-
-interface IText {
-    string: string,
-    style?: HTMLAttributes<HTMLParagraphElement> | CSSProperties | undefined
-    mb?: number
-}
 
 const Text = ({ string: string, style, mb = 12 }: IText) => {
     const paragraphs: JSX.Element[] = []
@@ -24,7 +19,7 @@ const Text = ({ string: string, style, mb = 12 }: IText) => {
     });
 
     const textElement = <div>
-        {paragraphs.map((item) => item)}
+        {paragraphs.map(item => item)}
     </div>
 
     return textElement;

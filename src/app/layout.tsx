@@ -46,54 +46,51 @@ export default function RootLayout({ children }: IChildren) {
       <body className='h-screen w-screen'>
         <ThemeProvider theme={theme}>
           <AppBar
-            sx={{ backgroundColor: "primary.dark" }}
-            className='bg-black t-0 h-1/10 justify-center relative'
+            className="bg-black t-0 h-1/10 justify-center relative"
+            position='relative'
+            style={{ backgroundColor: 'black' }}
           >
             <Toolbar disableGutters>
               <Typography
                 variant="h6"
                 noWrap
-                sx={{
-                  mr: 2,
-                  display: { md: 'flex' },
-                  fontFamily: 'monospace',
-                  fontWeight: 700,
-                  letterSpacing: '.3rem',
-                  textDecoration: 'none',
-                }}
+                marginRight={2}
+                fontFamily='monospace'
+                fontWeight= {700}
+                letterSpacing='.3rem'
               >
-                <Link style={{ marginLeft: 25 }} shallow href="/">
-                  <span>I</span>
-                  <WifiIcon sx={{ marginBottom: .5 }} />
-                  <span className='ml-1'>T</span>
+              <Link style={{ marginLeft: 25 }} shallow href="/">
+                <span>I</span>
+                <WifiIcon sx={{ marginBottom: .5 }} />
+                <span className='ml-1'>T</span>
+              </Link>
+            </Typography>
+            <Box className='flex'>
+              {pages.map((page) => (
+                <Link shallow href={`/${page}`}>
+                  <Button
+                    disableRipple
+                    key={page}
+                    className={
+                      "my-2 text-white block "
+                      +
+                      page === segment!
+                        ? "text-amber-400"
+                        : "text-white hover:text-amber-200"
+                    }
+                  >
+                    {page.split("-").join(' ')}
+                  </Button>
                 </Link>
-              </Typography>
-              <Box className='flex'>
-                {pages.map((page) => (
-                  <Link shallow href={`/${page}`}>
-                    <Button
-                      disableRipple
-                      key={page}
-                      className={
-                        page === segment!
-                          ? "text-amber-400"
-                          : "text-white"
-                          + " hover:text-amber-200"
-                      }
-                      sx={{ my: 2, color: 'white', display: 'block' }}
-                    >
-                      {page.split("-").join(' ')}
-                    </Button>
-                  </Link>
-                ))}
-              </Box>
-            </Toolbar>
-          </AppBar>
-          <main className='h-9/10 flex'>
-            {children}
-          </main>
-        </ThemeProvider>
-      </body>
+              ))}
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <main className='h-9/10 flex'>
+          {children}
+        </main>
+      </ThemeProvider>
+    </body>
     </html >
   )
 }

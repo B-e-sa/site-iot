@@ -15,7 +15,7 @@ export default function Development() {
                 <Title string="What is IoT development?" />
                 <p>
                     The development of IoT (Internet of Things) solutions involves various stages and aspects. It is a technology that has gained increasing relevance in various sectors, such as home automation, industry, healthcare, agriculture, among others. It enables the connection and communication between physical devices and computational systems, creating an intelligent and interconnected ecosystem.
-                    Behind IoT, there are several programming languages and technologies that drive the development of innovative solutions and intelligent applications for your day-to-day life. Here are some of the most popular languages and technologies:
+                    Behind IoT, there are several programming languages and technologies that drive the development of innovative solutions and intelligent applications for your day-to-day life. Continue reading to learn more about it.
                 </p>
             </Topic>
 

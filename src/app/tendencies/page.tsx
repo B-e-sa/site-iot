@@ -2,23 +2,19 @@
 import Image from 'next/image'
 import tendencies from '../../utils/tendencies.json'
 import { useState } from 'react';
+import { Typography } from '@mui/material'
 import Text from '../components/Text';
 
-interface ITendencies {
-    id: number;
-    img: string;
-    name: string;
-    bgColor: string;
-    summary: string
-}
-
 export default function Tendencies() {
-    const [selectedTendence, setSelectedTendence] = useState<number>(0);
+    const [selectedTendenceId, setSelectedTendenceId] = useState<number>(0);
 
-    const handleSelectTendence = (id: number) => {
-        if (selectedTendence === 0)
-            setSelectedTendence(id)
+    const handleSelectTendence = (id: number): void => {
+        selectedTendenceId === 0
+            ? setSelectedTendenceId(id)
+            : setSelectedTendenceId(0)
     }
+
+    const getCurrentTendence = () => tendencies[selectedTendenceId - 1]
 
     return (
         <div className='flex-col my-5 mg:m-0 mg:flex-row flex mg:justify-evenly shrink items-center h-full w-full'>
@@ -28,9 +24,9 @@ export default function Tendencies() {
                 name,
                 bgColor,
                 summary
-            }: ITendencies) => {
+            }) => {
 
-                const display = selectedTendence !== id && selectedTendence !== 0
+                const display = selectedTendenceId !== id && selectedTendenceId !== 0
                     ? "none"
                     : ""
 
@@ -41,12 +37,12 @@ export default function Tendencies() {
                     className='cursor-pointer flex flex-col items-center hover:scale-110 hover:m-10 mg:hover:m-0 transition-all'
                 >
                     <div
-                        onClick={() => setSelectedTendence(0)}
+                        onClick={() => handleSelectTendence(0)}
                         style={{ backgroundColor: bgColor }}
                         className={'w-80 h-80 flex justify-center items-center'}>
                         <div>
                             <Image
-                                alt=''
+                                alt={name}
                                 src={img}
                                 width={250}
                                 height={250}
@@ -59,44 +55,43 @@ export default function Tendencies() {
                     </div>
                 </div>
             })}
-            {
-                selectedTendence === 0 ?
-                    <></>
-                    :
-                    <div className='h-9/10 overflow-x-auto w-5/12 flex flex-col items-center justify-start'>
-                        <Text
-                            string={tendencies[selectedTendence - 1].expanded_info}
-                        />
-                        <div className='flex'>
-                            {tendencies[selectedTendence - 1].news.map((item) => {
-
-                                const { title, link, image } = item
-
+            {selectedTendenceId === 0 ?
+                <></>
+                :
+                <div className='h-9/10 overflow-x-auto w-5/12 flex flex-col items-center justify-start'>
+                    <Text
+                        string={getCurrentTendence().expanded_info}
+                    />
+                    <div className='flex'>
+                        {getCurrentTendence()
+                            .news
+                            .map(({
+                                title,
+                                link,
+                                image
+                            }) => {
                                 return (
                                     <div key={title} className='w-3/5'>
                                         <a
                                             href={link}
                                             target='_blank'
-                                            className='hover:text-zinc-500'
+                                            className='hover:text-zinc-800'
                                         >
                                             <Image
-                                                className='w-full object-cover'
+                                                className='w-full h-32 object-cover'
                                                 alt={title}
                                                 width={100}
                                                 height={100}
                                                 src={image}
                                                 unoptimized
                                             />
-                                            <p className='cursor-pointer'>
-                                                {title}
-                                            </p>
+                                            <Typography paddingRight={2} fontWeight={600}>{title}</Typography>
                                         </a>
                                     </div>
                                 )
                             })}
-                        </div>
                     </div>
-            }
+                </div>}
         </div >
     )
 }

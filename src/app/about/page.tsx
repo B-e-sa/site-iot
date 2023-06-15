@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import { useState } from 'react';
 import topics from '../../utils/topics.json';
 import Text from "../components/Text";
+import Title from "../components/Title";
 
 export default function About() {
 
@@ -16,25 +17,25 @@ export default function About() {
     return (
         <div className="flex p-7 h-fit">
             <div>
-                <Box sx={{
-                    width: 200,
-                    maxWidth: 200,
-                    marginRight: 10,
-                    position: "sticky",
-                    top: 0
-                }}>        
+                <Box
+                    width={200}
+                    maxWidth={200}
+                    marginRight={10}
+                    position="sticky"
+                    top={0}
+                >
                     <List aria-label="main page topics" className="p-3 -mt-6">
-                        {topics.map((item) => {
+                        {topics.map(({ id, title }) => {
                             return (
                                 <ListItemButton
-                                    key={item.id}
-                                    selected={selectedTopic === item.id}
-                                    onClick={() => handleListItemClick(item.id)}
+                                    key={id}
+                                    selected={selectedTopic === id}
+                                    onClick={() => handleListItemClick(id)}
                                 >
-                                    <a href={`#${item.id}`}>
+                                    <a href={`#${id}`}>
                                         <ListItemText
-                                            className={`${selectedTopic === item.id ? "border-l-zinc-800" : "border-l-zinc-300"} border-l-2 pl-2 w-44 h-14 flex items-center`}
-                                            primary={item.title}
+                                            className={`${selectedTopic === id ? "border-l-zinc-800" : "border-l-zinc-300"} border-l-2 pl-2 w-44 h-14 flex items-center`}
+                                            primary={title}
                                         />
                                     </a>
                                 </ListItemButton>
@@ -44,14 +45,12 @@ export default function About() {
                 </Box>
             </div>
             <div >
-                {topics.map(item => {
+                {topics.map(({ id, title, content }) => {
                     return (
-                        <div key={item.title} className="mb-11" >
-                            <h2 className="font-bold text-xl " id={item.id}>
-                                {item.title}
-                            </h2>
+                        <div key={title} className="mb-8" id={id}>
+                            <Title string={title} mb={1}/>
                             <Text
-                                string={item.content}
+                                string={content}
                                 style={{ marginBottom: 15 }}
                             />
                         </div>

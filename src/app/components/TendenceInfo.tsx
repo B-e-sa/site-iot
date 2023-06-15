@@ -30,13 +30,8 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
                     {textContex.title}
                 </Typography>
                 <Typography
-                    className={`${roboto.className} text-justify w-4/5`}
-                    fontFamily='monospace'
-                    sx={{
-                        mr: 2,
-                        mb: 1,
-                        fontSize: 17.5
-                    }}
+                    className={`text-justify w-4/5 mb-5`}
+                    fontSize={17.5}
                 >
                     {textContex.content}
                 </Typography>
@@ -45,10 +40,8 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
                 {textContex.pageLink !== "" &&
                     <>
                         <Typography
-                            sx={{
-                                fontWeight: 1000,
-                                fontFamily: 'monospace',
-                            }}
+                            fontWeight={1000}
+                            fontFamily='monospace'
                         >
                             See more about it
                         </Typography>
@@ -62,7 +55,7 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
                     </>
                 }
             </Link>
-        </div>
+        </div >
     )
 }
 
