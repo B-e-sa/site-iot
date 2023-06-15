@@ -1,51 +1,51 @@
 [
     {
         "id": 1,
-        "color": "#4BFF93",
+        "color": "#8BE33D",
         "icon": "/circle-icons/tendencies.svg",
         "textContex": {
             "title": "Tendencies",
             "content": "Welcome to the exciting world of the Internet of Things (IoT), where cutting-edge technologies are converging to redefine connectivity and unleash endless possibilities. The fusion of 5G, blockchain, and artificial intelligence (AI) is transforming the IoT landscape like never before.",
-            "pageLink": ""
-        }
-    },
-    {
-        "id": 2,
-        "color": "#FFD74B",
-        "icon": "/circle-icons/technologies.svg",
-        "textContex": {
-            "title": "Technologies",
-            "content": "The language of IoT programming takes center stage, enabling developers to bring life to their creations. From the versatility of Python to the efficiency of C++, and the scalability of Java, a multitude of programming languages form the vibrant palette that empowers IoT systems to communicate, process data, and make intelligent decisions.",
-            "pageLink": ""
+            "pageLink": "tendencies"
         }
     },
     {
         "id": 3,
-        "color": "#FF4BBE",
+        "color": "#1061FF",
         "icon": "/circle-icons/development.svg",
         "textContex": {
             "title": "Development",
-            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt porro voluptates blanditiis vero molestiae non vitae repellat",
-            "pageLink": ""
+            "content": "The language of IoT programming takes center stage, enabling developers to bring life to their creations. From the versatility of Python to the efficiency of C++, and the scalability of Java, a multitude of programming languages form the vibrant palette that empowers IoT systems to communicate, process data, and make intelligent decisions.",
+            "pageLink": "development"
         }
     },
     {
         "id": 4,
-        "color": "#4BC9FF",
+        "color": "#AC30AA",
         "icon": "/circle-icons/about.svg",
         "textContex": {
             "title": "About",
             "content": "Here you will find a fascinating universe of information about the Internet of Things, better known as IoT. If you are curious about this rising technology that is revolutionizing our world, explore the site!",
-            "pageLink": ""
+            "pageLink": "about"
         }
     },
     {
         "id": 5,
-        "color": "#FFC9C9",
+        "color": "#FE0000",
+        "icon": "/circle-icons/team.svg",
+        "textContex": {
+            "title": "Our team",
+            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt porro voluptates blanditiis vero molestiae non vitae repellat",
+            "pageLink": "team"
+        }
+    },
+    {
+        "id": 6,
+        "color": "#000000",
         "icon": "/circle-icons/home.svg",
         "textContex": {
-            "title": "Home",
-            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt porro voluptates blanditiis vero molestiae non vitae repellat",
+            "title": "Welcome!",
+            "content": "Here you will find a fascinating universe of information about the Internet of Things, better known as IoT. If you are curious about this emerging technology that is revolutionizing our world, explore the website! You can click on the other bubbles to see more paths to trail.",
             "pageLink": ""
         }
     }

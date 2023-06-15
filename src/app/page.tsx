@@ -1,37 +1,12 @@
 "use client"
 import Box from "@mui/material/Box";
-import { useEffect, useState } from "react";
-import TendencieInfo from "./components/TendenceInfo";
-import circles from '../utils/circles.json'
 import Image from "next/image";
-import KUTE from 'kute.js'
+import { useState } from "react";
+import circles from '../utils/circles.json';
+import TendencieInfo from "./components/TendenceInfo";
 
 export default function Home() {
-
-  // TODO:
-  // CIRCLES:
-  //   > middle circle should be the main page ~~or the selected page
-  //   > other cicles should be the adjacent pages
-  //   > selected circle should be the text content on the side
-  //   > selected circle should be bigger than the others ~~or go to the middle
-  //
-  // TEXT:
-  // > must have a title, paragraph and "find out more about it ->"
-  //   > do every text as object
-
-  /*
-  <g transform="translate(444.167597149 260.92336751706614)" style={{ visibility: "hidden" }}>
-              </g>
-              <g transform="translate(487.46285774431914 298.709007969279)" style={{ visibility: "hidden" }}>
-                <path
-                  id="blob3"
-                  d="" fill="#BB004B"></path></g>
-              <g transform="translate(470.5286434136709 302.7995433621849)" style={{ visibility: "hidden" }}>
-                <path id="blob4" d="" fill="#BB004B"></path></g>
-              <g transform="translate(448.22040673231885 274.4101160415314)" style={{ visibility: "hidden" }}>
-                <path id="blob5" d="" fill="#BB004B"></path></g>
-                */
-
+  
   const [selectedCircle, setSelectedCircle] = useState<number>(5)
 
   const cord: number[][] = [
@@ -41,20 +16,6 @@ export default function Home() {
     [-120, -120],
     [0, 0]
   ]
-
-  /*
-  useEffect(() => {
-    KUTE.fromTo(
-      "#blob1",
-      { path: "#blob1" },
-      { path: "#blob2" },
-      { path: "#blob3" },
-      { path: "#blob4" },
-      { path: "#blob5" },
-      { repeat: 999, duration: 3000, yoyo: true }
-    ).start()
-  }, [])
-  */
 
   const printCircles = () => {
     const circleElements: JSX.Element[] = []

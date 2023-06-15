@@ -15,7 +15,9 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
 
     const clickedCircle = circles.find(tendence => {
         return tendence.id === tendenceId
-    })
+    })!
+
+    const { textContex, } = clickedCircle
 
     return (
         <div className='w-3/5'>
@@ -25,7 +27,7 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
                     fontFamily='monospace'
                     className={`mb-3 ${roboto.className}`}
                 >
-                    {clickedCircle?.textContex.title}
+                    {textContex.title}
                 </Typography>
                 <Typography
                     className={`${roboto.className} text-justify w-4/5`}
@@ -36,25 +38,29 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
                         fontSize: 17.5
                     }}
                 >
-                    {clickedCircle?.textContex.content}
+                    {textContex.content}
                 </Typography>
             </div>
-            <Link href='#' className='flex'>
-                <Typography
-                    sx={{
-                        fontWeight: 1000,
-                        fontFamily: 'monospace',
-                    }}
-                >
-                    See more about it
-                </Typography>
-                <Image
-                    className='ml-2'
-                    alt='right arrow'
-                    src={arrow}
-                    width={25}
-                    height={25}
-                />
+            <Link href={textContex.pageLink} className='flex'>
+                {textContex.pageLink !== "" &&
+                    <>
+                        <Typography
+                            sx={{
+                                fontWeight: 1000,
+                                fontFamily: 'monospace',
+                            }}
+                        >
+                            See more about it
+                        </Typography>
+                        <Image
+                            className='ml-2'
+                            alt='right arrow'
+                            src={arrow}
+                            width={25}
+                            height={25}
+                        />
+                    </>
+                }
             </Link>
         </div>
     )

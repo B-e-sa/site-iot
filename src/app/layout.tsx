@@ -25,7 +25,8 @@ export default function RootLayout({ children }: IChildren) {
   const pages = [
     'about',
     'tendencies',
-    'development'
+    'development',
+    'our team'
   ];
 
   const theme = createTheme({
