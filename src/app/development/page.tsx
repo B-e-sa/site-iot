@@ -1,16 +1,17 @@
 "use client"
+import { Context } from '@/contexts/Context'
 import c from '../../../public/programming-icons/c.png'
 import cpp from '../../../public/programming-icons/cpp.svg'
 import python from '../../../public/programming-icons/python.svg'
 import CircularIcon from "../components/CircularIcon"
 import Title from '../components/Title'
 import Topic from '../components/Topic'
+import { useContext } from 'react'
 
 export default function Development() {
-
     return (
-        <article className="w-3/5 mx-auto text-lg">
-
+        <article className="w-3/5 mx-auto text-md">
+            
             <Topic>
                 <Title string="What is IoT development?" />
                 <p>

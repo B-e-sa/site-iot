@@ -4,6 +4,7 @@ import circles from '../../utils/circles.json';
 import Image from 'next/image';
 import arrow from '../../../public/general-icons/arrow.svg'
 import { Roboto } from 'next/font/google';
+import { ICirlce } from '@/types';
 
 const roboto = Roboto({
     weight: '400',
@@ -13,7 +14,7 @@ const roboto = Roboto({
 
 const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
 
-    const clickedCircle = circles.find(tendence => {
+    const clickedCircle: ICirlce = circles.find(tendence => {
         return tendence.id === tendenceId
     })!
 

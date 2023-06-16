@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import './globals.css';
 import React from 'react';
+import ContextProvider from '@/contexts/Context';
 
 export const metadata = {
   title: 'Next.js',
@@ -42,55 +43,59 @@ export default function RootLayout({ children }: IChildren) {
   })
 
   return (
-    <html lang="en">
-      <body className='h-screen w-screen'>
-        <ThemeProvider theme={theme}>
-          <AppBar
-            className="bg-black t-0 h-1/10 justify-center relative"
-            position='relative'
-            style={{ backgroundColor: 'black' }}
-          >
-            <Toolbar disableGutters>
-              <Typography
-                variant="h6"
-                noWrap
-                marginRight={2}
-                fontFamily='monospace'
-                fontWeight= {700}
-                letterSpacing='.3rem'
-              >
-              <Link style={{ marginLeft: 25 }} shallow href="/">
-                <span>I</span>
-                <WifiIcon sx={{ marginBottom: .5 }} />
-                <span className='ml-1'>T</span>
-              </Link>
-            </Typography>
-            <Box className='flex'>
-              {pages.map((page) => (
-                <Link shallow href={`/${page}`}>
-                  <Button
-                    disableRipple
-                    key={page}
-                    className={
-                      "my-2 text-white block "
-                      +
-                      page === segment!
-                        ? "text-amber-400"
-                        : "text-white hover:text-amber-200"
-                    }
-                  >
-                    {page.split("-").join(' ')}
-                  </Button>
-                </Link>
-              ))}
-            </Box>
-          </Toolbar>
-        </AppBar>
-        <main className='h-9/10 flex'>
-          {children}
-        </main>
-      </ThemeProvider>
-    </body>
-    </html >
+    <ContextProvider>
+      <html lang="en">
+        <body className='h-screen w-screen bg-black'>
+          <ThemeProvider theme={theme}>
+            <AppBar
+              className="bg-black t-0 h-1/10 justify-center relative"
+              position='relative'
+              style={{ backgroundColor: 'black' }}
+            >
+              <Toolbar disableGutters>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  marginRight={2}
+                  fontFamily='monospace'
+                  fontWeight={700}
+                  letterSpacing='.3rem'
+                >
+
+                  <Link className={`hover:text-amber-300 ${!segment ? "text-amber-400" : ""}`} style={{ marginLeft: 25 }} shallow href="/">
+                    <span>I</span>
+                    <WifiIcon sx={{ marginBottom: .5 }} />
+                    <span className='ml-1'>T</span>
+                  </Link>
+                </Typography>
+                <Box className='flex'>
+                  {pages.map((page) => (
+                    <Link shallow href={`/${page}`}>
+                      <Button
+                        disableRipple
+                        key={page}
+                        className={`hover:text-amber-300 ${page === segment ? "text-amber-400" : ""}`
+                          /*
+                          +
+                          page === segment!
+                            ? "text-amber-400"
+                            : "text-white hover:text-amber-200"
+                            */
+                        }
+                      >
+                        {page.split("-").join(' ')}
+                      </Button>
+                    </Link>
+                  ))}
+                </Box>
+              </Toolbar>
+            </AppBar>
+            <main className='h-9/10 flex'>
+              {children}
+            </main>
+          </ThemeProvider>
+        </body>
+      </html >
+    </ContextProvider>
   )
 }

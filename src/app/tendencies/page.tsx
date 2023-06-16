@@ -1,9 +1,10 @@
 "use client";
 import Image from 'next/image'
-import tendencies from '../../utils/tendencies.json'
+import tendencies from '../../utils/tendencies.json';
 import { useState } from 'react';
-import { Typography } from '@mui/material'
+import { Typography } from '@mui/material';
 import Text from '../components/Text';
+import x from '../../../public/general-icons/x.svg'
 
 export default function Tendencies() {
     const [selectedTendenceId, setSelectedTendenceId] = useState<number>(0);
@@ -39,8 +40,16 @@ export default function Tendencies() {
                     <div
                         onClick={() => handleSelectTendence(0)}
                         style={{ backgroundColor: bgColor }}
-                        className={'w-80 h-80 flex justify-center items-center'}>
-                        <div>
+                        className={'w-80 h-80 flex justify-center items-center'}
+                    >
+                        <div className='relative'>
+                            {selectedTendenceId !== 0 && <Image
+                                alt="close"
+                                src={x}
+                                width={35}
+                                height={35}
+                                className='absolute -top-[3.3rem] -left-[3.3rem] invert'
+                            />}
                             <Image
                                 alt={name}
                                 src={img}
@@ -85,7 +94,12 @@ export default function Tendencies() {
                                                 src={image}
                                                 unoptimized
                                             />
-                                            <Typography paddingRight={2} fontWeight={600}>{title}</Typography>
+                                            <Typography
+                                                paddingRight={2}
+                                                fontWeight={600}
+                                            >
+                                                {title}
+                                            </Typography>
                                         </a>
                                     </div>
                                 )

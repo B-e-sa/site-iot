@@ -17,6 +17,7 @@ export default function Home() {
   ]
 
   const printCircles = () => {
+    
     const circleElements: JSX.Element[] = []
 
     for (let i = 0; i < circles.length; i++) {
@@ -27,9 +28,7 @@ export default function Home() {
 
       const isCircleSelected = selectedCircle === id
 
-      const circleScale: string = isCircleSelected
-        ? '1.1'
-        : ''
+      const circleScale = isCircleSelected ? '1.1' : ''
 
       circleElements.push(
         <div
