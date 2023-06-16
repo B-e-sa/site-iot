@@ -1,23 +1,24 @@
 "use client"
-import { Context } from '@/contexts/Context'
 import c from '../../../public/programming-icons/c.png'
 import cpp from '../../../public/programming-icons/cpp.svg'
 import python from '../../../public/programming-icons/python.svg'
 import CircularIcon from "../components/CircularIcon"
 import Title from '../components/Title'
 import Topic from '../components/Topic'
-import { useContext } from 'react'
+import Text from '../components/Text'
 
 export default function Development() {
     return (
         <article className="w-3/5 mx-auto text-md">
-            
+
             <Topic>
                 <Title string="What is IoT development?" />
-                <p>
-                    The development of IoT (Internet of Things) solutions involves various stages and aspects. It is a technology that has gained increasing relevance in various sectors, such as home automation, industry, healthcare, agriculture, among others. It enables the connection and communication between physical devices and computational systems, creating an intelligent and interconnected ecosystem.
-                    Behind IoT, there are several programming languages and technologies that drive the development of innovative solutions and intelligent applications for your day-to-day life. Continue reading to learn more about it.
-                </p>
+                <Text
+                    string='
+                        The development of IoT (Internet of Things) solutions involves various stages and aspects. It is a technology that has gained increasing relevance in various sectors, such as home automation, industry, healthcare, agriculture, among others. It enables the connection and communication between physical devices and computational systems, creating an intelligent and interconnected ecosystem.
+                        Behind IoT, there are several programming languages and technologies that drive the development of innovative solutions and intelligent applications for your day-to-day life. Continue reading to learn more about it.
+                    '
+                />
             </Topic>
 
             <Topic>

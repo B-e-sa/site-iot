@@ -4,11 +4,12 @@ import WifiIcon from '@mui/icons-material/Wifi';
 import { AppBar, ThemeProvider, Toolbar, Typography, createTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Image from "next/image";
 import Link from 'next/link';
+import sun from '../../public/general-icons/sun.svg'
 import { useSelectedLayoutSegment } from 'next/navigation';
+import React, { useContext } from 'react';
 import './globals.css';
-import React from 'react';
-import ContextProvider from '@/contexts/Context';
 
 export const metadata = {
   title: 'Next.js',
@@ -34,68 +35,67 @@ export default function RootLayout({ children }: IChildren) {
     palette: {
       mode: "dark",
       primary: {
-        main: "#00000"
+        main: "#18181b"
       },
       secondary: {
-        main: "#fffff"
+        main: "#ffffff"
       }
     }
   })
 
   return (
-    <ContextProvider>
-      <html lang="en">
-        <body className='h-screen w-screen bg-black'>
-          <ThemeProvider theme={theme}>
-            <AppBar
-              className="bg-black t-0 h-1/10 justify-center relative"
-              position='relative'
-              style={{ backgroundColor: 'black' }}
-            >
-              <Toolbar disableGutters>
-                <Typography
-                  variant="h6"
-                  noWrap
-                  marginRight={2}
-                  fontFamily='monospace'
-                  fontWeight={700}
-                  letterSpacing='.3rem'
-                >
+    <html lang="en">
+      <ThemeProvider theme={theme}>
+        <body className='h-screen w-screen' style={{ backgroundColor: false ? "#18181b" : "white" }}>
+          <AppBar
+            className="bg-black t-0 h-1/10 justify-center relative"
+            position='relative'
+            style={{ backgroundColor: 'black' }}
+          >
+            <Toolbar disableGutters>
+              <Typography
+                variant="h6"
+                noWrap
+                marginRight={2}
+                fontFamily='monospace'
+                fontWeight={700}
+                letterSpacing='.3rem'
+              >
 
-                  <Link className={`hover:text-amber-300 ${!segment ? "text-amber-400" : ""}`} style={{ marginLeft: 25 }} shallow href="/">
-                    <span>I</span>
-                    <WifiIcon sx={{ marginBottom: .5 }} />
-                    <span className='ml-1'>T</span>
+                <Link className={`hover:text-amber-300 ${!segment ? "text-amber-400" : ""}`} style={{ marginLeft: 25 }} shallow href="/">
+                  <span>I</span>
+                  <WifiIcon sx={{ marginBottom: .5 }} />
+                  <span className='ml-1'>T</span>
+                </Link>
+              </Typography>
+              <Box className='flex'>
+                {pages.map((page) => (
+                  <Link shallow href={`/${page}`}>
+                    <Button
+                      disableRipple
+                      key={page}
+                      className={`hover:text-amber-300 ${page === segment ? "text-amber-400" : ""}`
+                      }
+                    >
+                      {page.split("-").join(' ')}
+                    </Button>
                   </Link>
-                </Typography>
-                <Box className='flex'>
-                  {pages.map((page) => (
-                    <Link shallow href={`/${page}`}>
-                      <Button
-                        disableRipple
-                        key={page}
-                        className={`hover:text-amber-300 ${page === segment ? "text-amber-400" : ""}`
-                          /*
-                          +
-                          page === segment!
-                            ? "text-amber-400"
-                            : "text-white hover:text-amber-200"
-                            */
-                        }
-                      >
-                        {page.split("-").join(' ')}
-                      </Button>
-                    </Link>
-                  ))}
-                </Box>
-              </Toolbar>
-            </AppBar>
-            <main className='h-9/10 flex'>
-              {children}
-            </main>
-          </ThemeProvider>
+                ))}
+              </Box>
+              <Image
+                alt=''
+                onClick={() => ""}
+                src={sun}
+                width={35}
+                height={35}
+              />
+            </Toolbar>
+          </AppBar>
+          <main className='h-9/10 flex'>
+            {children}
+          </main>
         </body>
-      </html >
-    </ContextProvider>
+      </ThemeProvider>
+    </html >
   )
 }

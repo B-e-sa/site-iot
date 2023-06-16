@@ -5,6 +5,7 @@ import { useState } from 'react';
 import topics from '../../utils/topics.json';
 import Text from "../components/Text";
 import Title from "../components/Title";
+import { useContext } from 'react'
 
 export default function About() {
 
@@ -12,6 +13,18 @@ export default function About() {
 
     const handleListItemClick = (topic: string) => {
         setSelectedTopic(topic)
+    }
+
+    const setBorderColor = (id: string) => {
+        if (selectedTopic === id) {
+            return false
+                ? "border-l-zinc-400"
+                : "border-l-zinc-800"
+        }
+
+        return false
+            ? "border-l-zinc-700"
+            : "border-l-zinc-400"
     }
 
     return (
@@ -34,7 +47,8 @@ export default function About() {
                                 >
                                     <a href={`#${id}`}>
                                         <ListItemText
-                                            className={`${selectedTopic === id ? "border-l-zinc-800" : "border-l-zinc-300"} border-l-2 pl-2 w-44 h-14 flex items-center`}
+                                            style={{ color: false ? "white" : "black" }}
+                                            className={`${setBorderColor(id)} border-l-2 pl-2 w-44 h-14 flex items-center`}
                                             primary={title}
                                         />
                                     </a>
@@ -48,7 +62,7 @@ export default function About() {
                 {topics.map(({ id, title, content }) => {
                     return (
                         <div key={title} className="mb-8" id={id}>
-                            <Title string={title} mb={1}/>
+                            <Title string={title} mb={1} />
                             <Text
                                 string={content}
                                 style={{ marginBottom: 15 }}

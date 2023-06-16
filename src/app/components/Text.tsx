@@ -1,7 +1,7 @@
 import { IText } from "@/types";
-import { CSSProperties, HTMLAttributes } from "react";
 
 const Text = ({ string: string, style, mb = 12 }: IText) => {
+
     const paragraphs: JSX.Element[] = []
 
     const splitedString = string.split('\n')
@@ -18,7 +18,7 @@ const Text = ({ string: string, style, mb = 12 }: IText) => {
         )
     });
 
-    const textElement = <div>
+    const textElement = <div style={{ color: false ? "white" : "black" }}>
         {paragraphs.map(item => item)}
     </div>
 
