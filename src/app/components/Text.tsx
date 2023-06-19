@@ -1,6 +1,19 @@
 import { IText } from "@/types";
+import { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
 
 const Text = ({ string: string, style, mb = 12 }: IText) => {
+
+    const [mounted, setMounted] = useState(false)
+    const { theme } = useTheme()
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) {
+        return null
+    }
 
     const paragraphs: JSX.Element[] = []
 
@@ -18,7 +31,7 @@ const Text = ({ string: string, style, mb = 12 }: IText) => {
         )
     });
 
-    const textElement = <div style={{ color: false ? "white" : "black" }}>
+    const textElement = <div style={{ color: theme === 'dark' ? "white" : "black" }}>
         {paragraphs.map(item => item)}
     </div>
 

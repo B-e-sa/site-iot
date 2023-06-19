@@ -1,30 +1,45 @@
 "use client"
 import { List, ListItemButton, ListItemText } from "@mui/material";
 import Box from "@mui/material/Box";
-import { useState } from 'react';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import topics from '../../utils/topics.json';
 import Text from "../components/Text";
 import Title from "../components/Title";
-import { useContext } from 'react'
+import isThemeDark from "@/utils/isThemeDark";
 
 export default function About() {
 
-    const [selectedTopic, setSelectedTopic] = useState("#iot-importance")
+    const [selectedTopicId, setSelectedTopicId] = useState("#iot-importance")
 
     const handleListItemClick = (topic: string) => {
-        setSelectedTopic(topic)
+        setSelectedTopicId(topic)
     }
 
-    const setBorderColor = (id: string) => {
-        if (selectedTopic === id) {
-            return false
-                ? "border-l-zinc-400"
-                : "border-l-zinc-800"
-        }
+    const [mounted, setMounted] = useState(false)
+    const { theme } = useTheme()
 
-        return false
-            ? "border-l-zinc-700"
-            : "border-l-zinc-400"
+    useEffect(() => { setMounted(true) }, [])
+
+    if (!mounted) return null
+
+    const setListBorderColor = (id: string) => {
+        const isTopicSelected = selectedTopicId === id
+
+        const light = 'border-l-zinc-400'
+        const dark = 'border-l-zinc-600'
+
+        const selectedBorderColor = isThemeDark()
+            ? light
+            : dark
+
+        const unselectedBorderColor = isThemeDark()
+            ? dark
+            : light
+
+        return isTopicSelected
+            ? selectedBorderColor
+            : unselectedBorderColor
     }
 
     return (
@@ -42,13 +57,11 @@ export default function About() {
                             return (
                                 <ListItemButton
                                     key={id}
-                                    selected={selectedTopic === id}
                                     onClick={() => handleListItemClick(id)}
                                 >
                                     <a href={`#${id}`}>
                                         <ListItemText
-                                            style={{ color: false ? "white" : "black" }}
-                                            className={`${setBorderColor(id)} border-l-2 pl-2 w-44 h-14 flex items-center`}
+                                            className={`${setListBorderColor(id)}  border-l-2 pl-2 w-44 h-14 flex items-center`}
                                             primary={title}
                                         />
                                     </a>

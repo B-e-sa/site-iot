@@ -30,6 +30,38 @@ export default function Tendencies() {
                 const display = selectedTendenceId !== id && selectedTendenceId !== 0
                     ? "none"
                     : ""
+"use client";
+import Image from 'next/image'
+import tendencies from '../../utils/tendencies.json';
+import { useState } from 'react';
+import { Typography } from '@mui/material';
+import Text from '../components/Text';
+import x from '../../../public/general-icons/x.svg'
+
+export default function Tendencies() {
+    const [selectedTendenceId, setSelectedTendenceId] = useState<number>(0);
+
+    const handleSelectTendence = (id: number): void => {
+        selectedTendenceId === 0
+            ? setSelectedTendenceId(id)
+            : setSelectedTendenceId(0)
+    }
+
+    const getCurrentTendence = () => tendencies[selectedTendenceId - 1]
+
+    return (
+        <div className='flex-col my-5 mg:m-0 mg:flex-row flex mg:justify-evenly shrink items-center h-full w-full'>
+            {tendencies.map(({
+                id,
+                img,
+                name,
+                bgColor,
+                summary
+            }) => {
+
+                const display = selectedTendenceId !== id && selectedTendenceId !== 0
+                    ? "none"
+                    : ""
 
                 return <div
                     key={id}

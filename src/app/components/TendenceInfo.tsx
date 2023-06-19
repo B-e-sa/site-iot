@@ -5,6 +5,9 @@ import Image from 'next/image';
 import arrow from '../../../public/general-icons/arrow.svg'
 import { Roboto } from 'next/font/google';
 import { ICirlce } from '@/types';
+import { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
+import isThemeDark from '@/utils/isThemeDark';
 
 const roboto = Roboto({
     weight: '400',
@@ -20,8 +23,19 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
 
     const { textContex, } = clickedCircle
 
+    const [mounted, setMounted] = useState(false)
+    const { theme } = useTheme()
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) {
+        return null
+    }
+
     return (
-        <div className='w-3/5 -mr-24'>
+        <div className='w-3/5 ml-10 -mr-24'>
             <div>
                 <Typography
                     variant="h3"
@@ -47,7 +61,7 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
                             See more about it
                         </Typography>
                         <Image
-                            className='ml-2'
+                            className={`ml-2 ${isThemeDark() ? 'invert' : ''}`}
                             alt='right arrow'
                             src={arrow}
                             width={25}

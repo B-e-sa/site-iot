@@ -1,14 +1,13 @@
 "use client";
 
 import WifiIcon from '@mui/icons-material/Wifi';
-import { AppBar, ThemeProvider, Toolbar, Typography, createTheme } from '@mui/material';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Image from "next/image";
+import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
-import sun from '../../public/general-icons/sun.svg'
 import { useSelectedLayoutSegment } from 'next/navigation';
-import React, { useContext } from 'react';
+import ThemeChanger from './components/ThemeButton';
 import './globals.css';
 
 export const metadata = {
@@ -31,22 +30,10 @@ export default function RootLayout({ children }: IChildren) {
     'our-team'
   ];
 
-  const theme = createTheme({
-    palette: {
-      mode: "dark",
-      primary: {
-        main: "#18181b"
-      },
-      secondary: {
-        main: "#ffffff"
-      }
-    }
-  })
-
   return (
     <html lang="en">
-      <ThemeProvider theme={theme}>
-        <body className='h-screen w-screen' style={{ backgroundColor: false ? "#18181b" : "white" }}>
+      <body className='h-screen w-screen'>
+        <ThemeProvider>
           <AppBar
             className="bg-black t-0 h-1/10 justify-center relative"
             position='relative'
@@ -74,28 +61,24 @@ export default function RootLayout({ children }: IChildren) {
                     <Button
                       disableRipple
                       key={page}
-                      className={`hover:text-amber-300 ${page === segment ? "text-amber-400" : ""}`
-                      }
+                      className={`
+                        hover:text-amber-300 
+                        ${page === segment ? "text-amber-400" : "text-white"}
+                      `}
                     >
                       {page.split("-").join(' ')}
                     </Button>
                   </Link>
                 ))}
               </Box>
-              <Image
-                alt=''
-                onClick={() => ""}
-                src={sun}
-                width={35}
-                height={35}
-              />
+              <ThemeChanger />
             </Toolbar>
           </AppBar>
           <main className='h-9/10 flex'>
             {children}
           </main>
-        </body>
-      </ThemeProvider>
+        </ThemeProvider>
+      </body>
     </html >
   )
 }
