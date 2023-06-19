@@ -1,8 +1,6 @@
-import sun from '../../../public/general-icons/sun.svg'
-import Image from 'next/image';
-import { useState, useEffect } from 'react'
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
-import { useTheme } from 'next-themes'
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 const ThemeChanger = () => {
 
