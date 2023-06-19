@@ -86,7 +86,7 @@ export default function Home() {
   }
 
   return (
-    <article className="flex items-center justify-center w-screen">
+    <article className="flex items-center justify-center w-screen overflow-hidden">
       <div className="animate-axis-spin w-2/5 flex justify-center items-center">
         {printCircles()}
       </div>
