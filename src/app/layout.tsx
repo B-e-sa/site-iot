@@ -1,5 +1,3 @@
-"use client";
-
 import WifiIcon from '@mui/icons-material/Wifi';
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
