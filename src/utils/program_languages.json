@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Python",
+        "text": "",
+        "image": "/programming-icons/python.svg"
+    },
+    {
+        "name": "C",
+        "text": "",
+        "image": "/programming-icons/c.png"
+    },
+    {
+        "name": "C++",
+        "text": "",
+        "image": "/programming-icons/cpp.svg"
+    }
+]
