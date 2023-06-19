@@ -55,12 +55,10 @@ export default function RootLayout({ children }: IChildren) {
                     <Button
                       disableRipple
                       key={page}
-                      className={`
-                        hover:text-amber-300 
-                        ${page === segment ? "text-amber-400" : "text-white"}
-                      `}
                     >
-                      {page.split("-").join(' ')}
+                      <p className={`hover:text-amber-300 ${page === segment ? "text-amber-400" : "text-white"}`}>
+                        {page.split("-").join(' ')}
+                      </p>
                     </Button>
                   </Link>
                 ))}
