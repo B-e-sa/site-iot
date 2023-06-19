@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
+import { useState } from 'react';
 import ThemeChanger from './components/ThemeButton';
 import './globals.css';
 
@@ -14,6 +15,8 @@ interface IChildren {
 }
 
 export default function RootLayout({ children }: IChildren) {
+
+  const [pageLoaded, setPageLoaded] = useState(false)
 
   const segment = useSelectedLayoutSegment()
 
@@ -66,9 +69,12 @@ export default function RootLayout({ children }: IChildren) {
               <ThemeChanger />
             </Toolbar>
           </AppBar>
-          <main className='h-9/10 flex'>
-            {children}
-          </main>
+          {pageLoaded
+            ? <p>TESTE</p>
+            : <main className='h-9/10 flex'>
+              {children}
+            </main>
+          }
         </ThemeProvider>
       </body>
     </html >

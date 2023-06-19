@@ -1,6 +1,7 @@
 import { IText } from "@/types";
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
+import isThemeDark from "@/utils/isThemeDark";
 
 const Text = ({ string: string, style, mb = 12 }: IText) => {
 
@@ -25,13 +26,13 @@ const Text = ({ string: string, style, mb = 12 }: IText) => {
         if (isLastItem) style = undefined
 
         paragraphs.push(
-            <p style={{ ...style, marginBottom: mb, textAlign: "justify" }}>
+            <p key={element} style={{ ...style, marginBottom: mb, textAlign: "justify" }}>
                 {element}
             </p>
         )
     });
 
-    const textElement = <div style={{ color: theme === 'dark' ? "white" : "black" }}>
+    const textElement = <div className={`${isThemeDark() ? "text-white" : "text-black"}`}>
         {paragraphs.map(item => item)}
     </div>
 
