@@ -43,17 +43,5 @@ export default function OurTeam() {
                 </div>
             })}
         </div>
-        <div className='w-fit'>
-            <p>SITE BIBLIOGRAPHY</p>
-            {bibliography.map(({ name, link }) => {
-                return <ul>
-                    <a target='_blank' href={link}>
-                        <li className='w-fit'>
-                            {name}
-                        </li>
-                    </a>
-                </ul>
-            })}
-        </div>
     </div >
 }
