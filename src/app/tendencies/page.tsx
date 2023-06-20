@@ -28,7 +28,7 @@ export default function Tendencies() {
                 <title>{`Luteya Coulston | vckkk` || "some title"} </title>
             </Head>
 
-            <div className='flex-col my-5 mg:m-0 mg:flex-row flex mg:justify-evenly shrink items-center h-full w-full'>
+            <div className='flex-col my-5 mg:m-0 mg:flex-row flex mg:justify-evenly shrink items-center h-screen w-full'>
                 {tendencies.map(({
                     id,
                     img,

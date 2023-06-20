@@ -17,8 +17,6 @@ interface IChildren {
 
 export default function RootLayout({ children }: IChildren) {
 
-  const [pageLoaded, setPageLoaded] = useState(false)
-
   const segment = useSelectedLayoutSegment()
 
   const pages = [
@@ -33,7 +31,7 @@ export default function RootLayout({ children }: IChildren) {
       <body className='h-screen w-screen'>
         <ThemeProvider>
           <AppBar
-            className="bg-black t-0 h-1/10 justify-center relative"
+            className="bg-black t-0 justify-center relative"
             position='relative'
             style={{ backgroundColor: 'black' }}
           >
@@ -70,12 +68,9 @@ export default function RootLayout({ children }: IChildren) {
               <ThemeChanger />
             </Toolbar>
           </AppBar>
-          {pageLoaded
-            ? <p>TESTE</p>
-            : <main className='h-9/10 w-screen flex'>
-              {children}
-            </main>
-          }
+          <main className='w-screen flex min-h-[100vh]'>
+            {children}
+          </main>
         </ThemeProvider>
         <footer>
           <div className='w-fit'>

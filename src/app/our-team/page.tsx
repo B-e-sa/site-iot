@@ -16,8 +16,8 @@ export default function OurTeam() {
         return 0
     })
 
-    return <div className='w-full flex flex-col justify-center items-center'>
-        <div className='w-full flex overflow-x-hidden'>
+    return <aside className='flex justify-center items-center w-full'>
+        <div className='grid grid-cols-4'>
             {sortedTeam.map(({ name, image, course }) => {
                 return <div className='mx-10 flex flex-col items-center' >
                     <Image
@@ -37,11 +37,12 @@ export default function OurTeam() {
                     <Typography
                         fontSize={course.length >= 27 ? 12.8 : 15}
                         color="gray"
+                        className='mb-10'
                     >
                         {course}
                     </Typography>
                 </div>
             })}
         </div>
-    </div >
+    </aside>
 }
