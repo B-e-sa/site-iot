@@ -6,8 +6,7 @@ import Button from '@mui/material/Button';
 import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
-import { useState } from 'react';
-import bibliography from '../utils/bibliography.json'
+import bibliography from '../utils/bibliography.json';
 import ThemeChanger from './components/ThemeButton';
 import './globals.css';
 
@@ -31,7 +30,7 @@ export default function RootLayout({ children }: IChildren) {
       <body className='h-screen w-screen'>
         <ThemeProvider>
           <AppBar
-            className="bg-black t-0 justify-center relative"
+            className="bg-black t-0 justify-center relative min-h-[10%]"
             position='relative'
             style={{ backgroundColor: 'black' }}
           >
@@ -68,17 +67,17 @@ export default function RootLayout({ children }: IChildren) {
               <ThemeChanger />
             </Toolbar>
           </AppBar>
-          <main className='w-screen flex min-h-[100vh]'>
+          <main className='w-screen flex min-h-[90%]'>
             {children}
           </main>
         </ThemeProvider>
-        <footer>
-          <div className='w-fit'>
-            <p>SITE BIBLIOGRAPHY</p>
+        <footer className='h-14 flex bg-black text-white justify-center items-center w-full'>
+          <Typography marginRight={2}>BIBLIOGRAPHY:</Typography>
+          <div className='flex'>
             {bibliography.map(({ name, link }) => {
               return <ul>
                 <a target='_blank' href={link}>
-                  <li className='w-fit'>
+                  <li className='w-fit mr-5'>
                     {name}
                   </li>
                 </a>

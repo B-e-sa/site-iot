@@ -1,7 +1,6 @@
 "use client"
 import { Typography } from '@mui/material'
 import Image from 'next/image'
-import bibliography from '../../utils/bibliography.json'
 import team from '../../utils/team_members.json'
 
 export default function OurTeam() {
