@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes'
 
-const isThemeDark = () => {
+const isThemeDark = (): boolean => {
     const { theme } = useTheme()
 
     return theme === 'dark'

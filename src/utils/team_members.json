@@ -1,0 +1,37 @@
+[
+    {
+        "name": "João Pereira",
+        "image": "/our-team/joao.jpg",
+        "course": "Computer Science"
+    },
+    {
+        "name": "Dara Praça",
+        "image": "/our-team/dara.jpg",
+        "course": "Computer Science"
+    },
+    {
+        "name": "Pedro Verillo",
+        "image": "/our-team/pedro.jpg",
+        "course": "Systems Analysis and Development"
+    },
+    {
+        "name": "Vitor Pereira",
+        "image": "/our-team/vitor.jpg",
+        "course": "Accounting"
+    },
+    {
+        "name": "Saimon Nicodemus",
+        "image": "/our-team/saimon.jpg",
+        "course": "Computer Science"
+    },
+    {
+        "name": "Felipe Soares",
+        "image": "/our-team/felipe.jpg",
+        "course": "Computer Science"
+    },
+    {
+        "name": "Iara Dellamore",
+        "image": "/our-team/iara.jpg",
+        "course": "Systems Analysis and Development"
+    }
+]

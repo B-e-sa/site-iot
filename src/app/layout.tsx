@@ -71,7 +71,7 @@ export default function RootLayout({ children }: IChildren) {
           </AppBar>
           {pageLoaded
             ? <p>TESTE</p>
-            : <main className='h-9/10 flex'>
+            : <main className='h-9/10 w-screen flex'>
               {children}
             </main>
           }
