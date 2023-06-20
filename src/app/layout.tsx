@@ -7,6 +7,7 @@ import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { useState } from 'react';
+import bibliography from '../utils/bibliography.json'
 import ThemeChanger from './components/ThemeButton';
 import './globals.css';
 
@@ -76,6 +77,20 @@ export default function RootLayout({ children }: IChildren) {
             </main>
           }
         </ThemeProvider>
+        <footer>
+          <div className='w-fit'>
+            <p>SITE BIBLIOGRAPHY</p>
+            {bibliography.map(({ name, link }) => {
+              return <ul>
+                <a target='_blank' href={link}>
+                  <li className='w-fit'>
+                    {name}
+                  </li>
+                </a>
+              </ul>
+            })}
+          </div>
+        </footer>
       </body>
     </html >
   )
