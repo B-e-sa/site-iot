@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import topics from '../../utils/topics.json';
-import Text from "../components/Text";
-import Title from "../components/Title";
+import Text from "../components/typography/Text";
+import Title from "../components/typography/Title";
 import isThemeDark from "@/utils/isThemeDark";
 
 export default function About() {

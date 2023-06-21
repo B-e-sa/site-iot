@@ -1,15 +1,24 @@
 "use client"
+import { IMember } from '@/types'
 import team from '../../utils/team_members.json'
 import TeamMemberIcon from '../components/TeamMember'
+import returnLowercased from '@/utils/setAllToLowercase'
 
 export default function OurTeam() {
-    const sortedTeam = team.sort((currentMember, nextMember) => {
 
-        const nameA = currentMember.name.toLowerCase()
-        const nameB = nextMember.name.toLowerCase()
+    const sortedTeam: IMember[] = team.sort((currentMember, nextMember) => {
 
-        const courseA = currentMember.course.toLowerCase()
-        const courseB = nextMember.course.toLowerCase()
+        const [
+            nameA,
+            nameB,
+            courseA,
+            courseB
+        ] = returnLowercased([
+            currentMember.name,
+            nextMember.name,
+            currentMember.course,
+            nextMember.course
+        ])
 
         if (courseA < courseB || nameA < nameB)
             return -1
@@ -18,7 +27,7 @@ export default function OurTeam() {
             return 1
 
         return 0
-        
+
     })
 
     return <aside className='flex justify-center items-center w-full'>

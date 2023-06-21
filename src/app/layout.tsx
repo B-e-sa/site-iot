@@ -1,9 +1,9 @@
 "use client"
 import { IChildren } from '@/types';
 import { ThemeProvider } from 'next-themes';
-import Header from './components/Header';
+import Header from './components/layout/Header';
 import './globals.css';
-import Footer from './components/Footer';
+import Footer from './components/layout/Footer';
 
 export default function RootLayout({ children }: IChildren) {
   return (

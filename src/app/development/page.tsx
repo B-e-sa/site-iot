@@ -3,9 +3,9 @@ import c from '../../../public/programming-icons/c.png'
 import cpp from '../../../public/programming-icons/cpp.svg'
 import python from '../../../public/programming-icons/python.svg'
 import CircularIcon from "../components/CircularIcon"
-import Title from '../components/Title'
-import Topic from '../components/Topic'
-import Text from '../components/Text'
+import Title from '../components/typography/Title'
+import Topic from '../components/typography/Topic'
+import Text from '../components/typography/Text'
 
 export default function Development() {
     return (

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import x from '../../../public/general-icons/x.svg';
 import tendencies from '../../utils/tendencies.json';
-import Text from '../components/Text';
+import Text from '../components/typography/Text';
 
 export default function Tendencies() {
     const [selectedTendenceId, setSelectedTendenceId] = useState<number>(0);
