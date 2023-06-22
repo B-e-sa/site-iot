@@ -1,4 +1,5 @@
-import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
@@ -17,8 +18,10 @@ const ThemeChanger = () => {
             : setTheme('dark')
     }
 
+    const Icon = theme === 'dark' ? LightModeOutlinedIcon : DarkModeOutlinedIcon
+
     return <div className='ml-auto mr-10'>
-        <WbSunnyOutlinedIcon onClick={handleTheme} className='cursor-pointer' />
+        <Icon onClick={handleTheme} className='cursor-pointer' />
     </div>
 }
 

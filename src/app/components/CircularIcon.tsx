@@ -1,16 +1,13 @@
-import Image, { StaticImageData } from "next/image"
-import { CSSProperties, HTMLAttributes } from "react"
+import { IICon } from "@/types";
+import Image from "next/image";
 
-interface IICon {
-    style?: HTMLAttributes<HTMLDivElement> | CSSProperties | undefined
-    backgroundColor: string
-    width: number
-    src: string | StaticImageData
-    alt: string
-}
-
-
-const CircularIcon = ({ style, backgroundColor, width, src, alt }: IICon) => {
+const CircularIcon = ({
+    style,
+    backgroundColor,
+    width,
+    src,
+    alt
+}: IICon) => {
 
     return (
         <div

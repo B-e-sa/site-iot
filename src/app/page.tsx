@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import circles from '../utils/circles.json';
 import TendencieInfo from "./components/TendenceInfo";
+import Loading from "./loading";
 
 export default function Home() {
 
@@ -17,7 +18,7 @@ export default function Home() {
   ]
 
   const printCircles = () => {
-    
+
     const circleElements: JSX.Element[] = []
 
     for (let i = 0; i < circles.length; i++) {

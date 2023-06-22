@@ -17,14 +17,7 @@ const roboto = Roboto({
 
 const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
 
-    const clickedCircle: ICirlce = circles.find(tendence => {
-        return tendence.id === tendenceId
-    })!
-
-    const { textContex, } = clickedCircle
-
     const [mounted, setMounted] = useState(false)
-    const { theme } = useTheme()
 
     useEffect(() => {
         setMounted(true)
@@ -33,6 +26,12 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
     if (!mounted) {
         return null
     }
+
+    const clickedCircle: ICirlce = circles.find(tendence => {
+        return tendence.id === tendenceId
+    })!
+
+    const { textContex, } = clickedCircle
 
     return (
         <div className='w-3/5 ml-10 -mr-24'>

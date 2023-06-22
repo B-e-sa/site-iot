@@ -1,11 +1,8 @@
+import { IMember } from '@/types'
 import { Typography } from '@mui/material'
 import Image from 'next/image'
 
-const TeamMemberIcon = ({ name, image, course }: {
-    name: string;
-    image: string;
-    course: string;
-}) => {
+const TeamMemberIcon = ({ name, image, course }: IMember) => {
     return <div className="mx-10 flex flex-col items-center">
         <Image
             alt=""

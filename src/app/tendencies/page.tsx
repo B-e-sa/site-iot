@@ -15,7 +15,7 @@ export default function Tendencies() {
             : setSelectedTendenceId(0)
     }
 
-    const getCurrentTendence = () => tendencies[selectedTendenceId - 1]
+    const currentTendency = tendencies[selectedTendenceId - 1]
 
     return (
         <div className='flex-col my-5 mg:m-0 mg:flex-row flex mg:justify-evenly shrink items-center w-full'>
@@ -48,7 +48,7 @@ export default function Tendencies() {
                                 src={x}
                                 width={35}
                                 height={35}
-                                className='absolute -top-[3.3rem] -left-[3.3rem] invert'
+                                className='absolute -left-5 -top-5'
                             />}
                             <Image
                                 alt={name}
@@ -69,10 +69,10 @@ export default function Tendencies() {
                 :
                 <div className='h-9/10 overflow-x-auto w-5/12 flex flex-col items-center justify-start'>
                     <Text
-                        string={getCurrentTendence().expanded_info}
+                        string={currentTendency.expanded_info}
                     />
                     <div className='flex'>
-                        {getCurrentTendence()
+                        {currentTendency
                             .news
                             .map(({
                                 title,
