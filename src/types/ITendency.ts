@@ -1,6 +1,6 @@
 import { INew } from "./INew";
 
-export interface ITendence {
+export interface ITendency {
     id: number;
     img: string;
     name: string;

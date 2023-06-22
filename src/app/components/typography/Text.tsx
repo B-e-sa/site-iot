@@ -1,22 +1,22 @@
 import { IText } from "@/types";
-import { useEffect, useState } from 'react'
-import { useTheme } from 'next-themes'
-import isThemeDark from "@/utils/isThemeDark";
 
-const Text = ({ string: string, style, mb = 12 }: IText) => {
+import { Typography } from "@mui/material";
+
+const Text = ({ string, style, mb = 2 }: IText) => {
     const paragraphs: JSX.Element[] = []
 
     const splitedString = string.split('\n')
 
     splitedString.forEach((element, index) => {
-        const isLastItem = index === splitedString.length - 1
-
-        if (isLastItem) style = undefined
-
         paragraphs.push(
-            <p key={element} style={{ ...style, marginBottom: mb, textAlign: "justify" }}>
+            <Typography
+                marginBottom={mb}
+                textAlign="justify"
+                key={element}
+                style={style}
+            >
                 {element}
-            </p>
+            </Typography >
         )
     });
 
