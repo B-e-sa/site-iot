@@ -40,7 +40,5 @@ export default function (
 
     })
 
-    console.log(sortedTeam)
-
     res.status(200).send(sortedTeam)
 }
