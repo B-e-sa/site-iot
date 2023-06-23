@@ -5,8 +5,8 @@ import Box from "@mui/material/Box";
 import { useContext, useState } from 'react';
 import Text from "../components/typography/Text";
 import Title from "../components/typography/Title";
-import useFetch from "../hooks/useFetch";
 import { Context } from "../context/Context";
+import topics from '../../utils/topics.json';
 import { ITopic } from "@/types";
 
 export default function About() {
@@ -14,11 +14,6 @@ export default function About() {
     const [selectedTopicId, setSelectedTopicId] = useState("#iot-importance")
 
     const { language } = useContext(Context)
-
-    const { value } = useFetch('http://localhost:3000/api/topics', {
-        method: 'POST',
-        body: JSON.stringify({ lang: language })
-    }, [language])
 
     const handleListItemClick = (topic: string) => {
         setSelectedTopicId(topic)
@@ -43,8 +38,6 @@ export default function About() {
             : unselectedBorderColor
     }
 
-    if (!value) return
-
     return (
         <div className="flex p-7 h-fit">
             <div>
@@ -56,7 +49,7 @@ export default function About() {
                     top={0}
                 >
                     <List aria-label="main page topics" className="p-3 -mt-6">
-                        {(value as ITopic[]).map(({ id, title }) => {
+                        {((topics as any)[language] as ITopic[]).map(({ id, title }) => {
                             return (
                                 <ListItemButton
                                     key={id}
@@ -75,7 +68,7 @@ export default function About() {
                 </Box>
             </div>
             <div >
-                {(value as ITopic[]).map(({ id, title, content }) => {
+                {((topics as any)[language] as ITopic[]).map(({ id, title, content }) => {
                     return (
                         <div key={title} className="mb-8" id={id}>
                             <Title string={title} mb={1} />
