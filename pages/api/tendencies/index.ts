@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { tendencies } from "../../data/data";
-import sendDesiredDataLanguage from "../../utils/sendDesiredDataLanguage";
+import { tendencies } from "../../../data/data";
+import sendDesiredDataLanguage from "../../../src/utils/sendDesiredDataLanguage";
 
 export default function (
     req: NextApiRequest,

@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { team } from "../../data/data";
+import { team } from "../../../data/data";
 import { IMember } from "@/types";
 import returnLowercased from "@/utils/setAllToLowercase";
 
