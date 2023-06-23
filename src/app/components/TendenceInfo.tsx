@@ -51,7 +51,7 @@ const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
                             fontWeight={1000}
                             fontFamily='monospace'
                         >
-                            See more about it
+                            {language === 'pt' ? 'Veja mais' : 'See more about it' }
                         </Typography>
                         <Image
                             className={`ml-2 ${isThemeDark() ? 'invert' : ''}`}
