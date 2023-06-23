@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface IChildren {
-    children: JSX.Element
+    children: JSX.Element | ReactNode
 }

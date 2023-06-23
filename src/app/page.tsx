@@ -1,11 +1,14 @@
 "use client"
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import circles from '../utils/circles.json';
 import TendencieInfo from "./components/TendenceInfo";
-import Loading from "./loading";
+import { Context } from "./context/Context";
+import { ICirlce } from "@/types";
 
 export default function Home() {
+
+  const { language } = useContext(Context)
 
   const [selectedCircle, setSelectedCircle] = useState<number>(5)
 
@@ -21,9 +24,9 @@ export default function Home() {
 
     const circleElements: JSX.Element[] = []
 
-    for (let i = 0; i < circles.length; i++) {
+    for (let i = 0; i < (circles as any)[language].length; i++) {
 
-      const { id, color, icon } = circles[i]
+      const { id, color, icon } = (circles as any)[language][i] as ICirlce
 
       const [x, y] = [cord[i][0], cord[i][1]]
 
@@ -33,6 +36,7 @@ export default function Home() {
 
       circleElements.push(
         <div
+          key={id}
           onClick={() => setSelectedCircle(id)}
           className={`items-center flex justify-center rounded-full absolute cursor-pointer transition-all duration-300`}
           style={{

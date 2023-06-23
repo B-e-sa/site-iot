@@ -6,7 +6,7 @@ const Footer = () => {
         <Typography marginRight={2}>BIBLIOGRAPHY:</Typography>
         <div className='flex'>
             {bibliography.map(({ name, link }) => {
-                return <ul>
+                return <ul key={name}>
                     <a target='_blank' href={link}>
                         <li className='w-fit mr-5'>
                             {name}

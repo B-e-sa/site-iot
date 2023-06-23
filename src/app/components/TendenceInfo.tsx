@@ -5,9 +5,10 @@ import Image from 'next/image';
 import arrow from '../../../public/general-icons/arrow.svg'
 import { Roboto } from 'next/font/google';
 import { ICirlce } from '@/types';
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import isThemeDark from '@/utils/isThemeDark';
+import { Context } from '../context/Context';
 
 const roboto = Roboto({
     weight: '400',
@@ -17,19 +18,12 @@ const roboto = Roboto({
 
 const TendencieInfo = ({ tendenceId }: { tendenceId: number }) => {
 
-    const [mounted, setMounted] = useState(false)
+    const { language } = useContext(Context)
 
-    useEffect(() => {
-        setMounted(true)
-    }, [])
-
-    if (!mounted) {
-        return null
-    }
-
-    const clickedCircle: ICirlce = circles.find(tendence => {
-        return tendence.id === tendenceId
-    })!
+    const clickedCircle: ICirlce =
+        ((circles as any)[language] as ICirlce[]).find(tendence => {
+            return tendence.id === tendenceId
+        })!
 
     const { textContex, } = clickedCircle
 

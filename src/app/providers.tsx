@@ -2,10 +2,13 @@
 
 import { ThemeProvider } from 'next-themes'
 import { ReactNode } from 'react'
+import ContextProvider from './context/Context'
 
 const Providers = ({ children }: { children: ReactNode }) => {
     return <ThemeProvider attribute='class'>
-        {children}
+        <ContextProvider>
+            {children}
+        </ContextProvider>
     </ThemeProvider>
 }
 

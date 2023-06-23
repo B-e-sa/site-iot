@@ -20,9 +20,8 @@ const ThemeChanger = () => {
 
     const Icon = theme === 'dark' ? LightModeOutlinedIcon : DarkModeOutlinedIcon
 
-    return <div className='ml-auto mr-10'>
-        <Icon onClick={handleTheme} className='cursor-pointer' />
-    </div>
+    return <Icon onClick={handleTheme} className='cursor-pointer' />
+
 }
 
 export default ThemeChanger

@@ -7,7 +7,7 @@ const Text = ({ string, style, mb = 2 }: IText) => {
 
     const splitedString = string.split('\n')
 
-    splitedString.forEach((element, index) => {
+    splitedString.forEach((element) => {
         paragraphs.push(
             <Typography
                 marginBottom={mb}

@@ -6,3 +6,4 @@ export * from "../types/INew";
 export * from "../types/ICircle";
 export * from "../types/IMember"
 export * from '../types/IIcon'
+export * from '../types/ITopic'

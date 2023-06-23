@@ -1,13 +1,23 @@
 "use client";
 import { Typography } from '@mui/material';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import x from '../../../public/general-icons/x.svg';
-import tendencies from '../../utils/tendencies.json';
 import Text from '../components/typography/Text';
+import useFetch from '../hooks/useFetch';
+import { Context } from '../context/Context';
+import { ITendency } from '@/types';
 
 export default function Tendencies() {
+    
+    const { language } = useContext(Context)
+
     const [selectedTendenceId, setSelectedTendenceId] = useState<number>(0);
+
+    const { value } = useFetch('http://localhost:3000/api/tendencies', {
+        method: 'POST',
+        body: JSON.stringify({ lang: language })
+    }, [language])
 
     const handleSelectTendence = (id: number): void => {
         selectedTendenceId === 0
@@ -15,11 +25,13 @@ export default function Tendencies() {
             : setSelectedTendenceId(0)
     }
 
-    const currentTendency = tendencies[selectedTendenceId - 1]
+    if(!value) return 
+
+    const currentTendency = (value as ITendency[])[selectedTendenceId - 1]
 
     return (
         <div className='flex-col my-5 mg:m-0 mg:flex-row flex mg:justify-evenly shrink items-center w-full'>
-            {tendencies.map(({
+            {(value as ITendency[]).map(({
                 id,
                 img,
                 name,

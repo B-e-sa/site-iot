@@ -1,27 +1,28 @@
 "use client"
+import isThemeDark from "@/utils/isThemeDark";
 import { List, ListItemButton, ListItemText } from "@mui/material";
 import Box from "@mui/material/Box";
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import topics from '../../utils/topics.json';
+import { useContext, useState } from 'react';
 import Text from "../components/typography/Text";
 import Title from "../components/typography/Title";
-import isThemeDark from "@/utils/isThemeDark";
+import useFetch from "../hooks/useFetch";
+import { Context } from "../context/Context";
+import { ITopic } from "@/types";
 
 export default function About() {
 
     const [selectedTopicId, setSelectedTopicId] = useState("#iot-importance")
 
+    const { language } = useContext(Context)
+
+    const { value } = useFetch('http://localhost:3000/api/topics', {
+        method: 'POST',
+        body: JSON.stringify({ lang: language })
+    }, [language])
+
     const handleListItemClick = (topic: string) => {
         setSelectedTopicId(topic)
     }
-
-    const [mounted, setMounted] = useState(false)
-    const { theme } = useTheme()
-
-    useEffect(() => { setMounted(true) }, [])
-
-    if (!mounted) return null
 
     const setListBorderColor = (id: string) => {
         const isTopicSelected = selectedTopicId === id
@@ -42,6 +43,8 @@ export default function About() {
             : unselectedBorderColor
     }
 
+    if (!value) return
+
     return (
         <div className="flex p-7 h-fit">
             <div>
@@ -53,7 +56,7 @@ export default function About() {
                     top={0}
                 >
                     <List aria-label="main page topics" className="p-3 -mt-6">
-                        {topics.map(({ id, title }) => {
+                        {(value as ITopic[]).map(({ id, title }) => {
                             return (
                                 <ListItemButton
                                     key={id}
@@ -72,7 +75,7 @@ export default function About() {
                 </Box>
             </div>
             <div >
-                {topics.map(({ id, title, content }) => {
+                {(value as ITopic[]).map(({ id, title, content }) => {
                     return (
                         <div key={title} className="mb-8" id={id}>
                             <Title string={title} mb={1} />

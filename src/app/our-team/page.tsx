@@ -1,38 +1,28 @@
 "use client"
 import { IMember } from '@/types'
-import team from '../../utils/team_members.json'
+import { useContext } from 'react'
 import TeamMemberIcon from '../components/TeamMember'
-import returnLowercased from '@/utils/setAllToLowercase'
+import useFetch from '../hooks/useFetch'
+import { Context } from '../context/Context'
 
-export default function OurTeam() {
+export default async function OurTeam() {
+    const { language } = useContext(Context)
 
-    const sortedTeam: IMember[] = team.sort((currentMember, nextMember) => {
+    const { value } = useFetch('http://localhost:3000/api/team', {
+        method: 'POST',
+        body: JSON.stringify({ lang: language })
+    }, [language])
 
-        const [
-            nameA,
-            nameB,
-            courseA,
-            courseB
-        ] = returnLowercased([
-            currentMember.name,
-            nextMember.name,
-            currentMember.course,
-            nextMember.course
-        ])
-
-        if (courseA < courseB || nameA < nameB)
-            return -1
-
-        if (courseA > courseB || nameA > nameB)
-            return 1
-
-        return 0
-
-    })
+    if (!value) return
 
     return <aside className='flex justify-center items-center w-full'>
         <div className='grid grid-cols-4'>
-            {sortedTeam.map((member) => <TeamMemberIcon {...member} />)}
+            {(value as IMember[]).map((member) => {
+                return <TeamMemberIcon
+                    key={member.name}
+                    {...member}
+                />
+            })}
         </div>
     </aside>
 }

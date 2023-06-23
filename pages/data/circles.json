@@ -6,7 +6,7 @@
             "icon": "/circle-icons/tendencies.svg",
             "textContex": {
                 "title": "Tendências",
-                "content": "Bem-vindo ao emocionante mundo da Internet das Coisas (IoT), onde tecnologias de ponta estão convergindo para redefinir a conectividade e liberar possibilidades infinitas. A fusão do 5G, blockchain e inteligência artificial (IA) está transformando o cenário da IoT como nunca antes.",
+                "content": "Olá, lhe apresentamos o empolgante mundo da Internet das Coisas (IoT), onde tecnologias de ponta estão convergindo para redefinir a conectividade e desencadear possibilidades infinitas. A fusão de 5G, blockchain e inteligência artificial (IA) está transformando o cenário da IoT como nunca antes.",
                 "pageLink": "tendencies"
             }
         },
@@ -16,7 +16,7 @@
             "icon": "/circle-icons/development.svg",
             "textContex": {
                 "title": "Desenvolvimento",
-                "content": "Linguagens de programação IoT ganharam destaque, permitindo que os desenvolvedores dêem vida às suas criações. Da versatilidade do Python à eficiência do C++, e à escalabilidade do Java, uma infinidade de linguagens de programação compõem a vibrante paleta que capacita os sistemas de IoT a se comunicarem, processarem dados e tomarem decisões inteligentes.",
+                "content": "A linguagem de programação para IoT assume o centro do palco, permitindo que os desenvolvedores deem vida às suas criações. Desde a versatilidade do Python até a eficiência do C++ e a escalabilidade do Java, uma variedade de linguagens de programação forma uma paleta vibrante que capacita sistemas de IoT a se comunicarem, processarem dados e tomarem decisões inteligentes.",
                 "pageLink": "development"
             }
         },
@@ -26,7 +26,7 @@
             "icon": "/circle-icons/about.svg",
             "textContex": {
                 "title": "Sobre",
-                "content": "O que é IoT? Como ela transforma nosso mundo? Devo usar IoT ou não ao longo da minha vida? Saiba mais sobre os tópicos fundamentais do assunto e como ele pode ser introduzido ou ter maior significado para você.",
+                "content": "O que é IoT? Como ela transforma nosso mundo? Devo usar IoT ao longo da minha vida? Saiba mais sobre os tópicos fundamentais do assunto e como ele pode ser introduzido ou ter maior relevância para você.",
                 "pageLink": "about"
             }
         },
@@ -45,8 +45,8 @@
             "color": "#000000",
             "icon": "/circle-icons/home.svg",
             "textContex": {
-                "title": "Olá!",
-                "content": "Aqui você encontrará um fascinante universo de informações sobre a Internet das Coisas, mais conhecida como IoT. Se você está curioso sobre essa tecnologia emergente que está revolucionando nosso mundo, explore o site! Você pode clicar nas outras bolhas para ver mais caminhos a percorrer.",
+                "title": "Welcome!",
+                "content": "Here you will find a fascinating universe of information about the Internet of Things, better known as IoT. If you are curious about this emerging technology that is revolutionizing our world, explore the website! You can click on the other bubbles to see more paths to trail.",
                 "pageLink": ""
             }
         }
